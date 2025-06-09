@@ -1,4 +1,3 @@
-version: "3"
 x-airflow-common: &airflow-common
   image: apache/airflow:2.6.3
   environment: &airflow-common-env
@@ -6,7 +5,7 @@ x-airflow-common: &airflow-common
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
-    AIRFLOW__CORE__FERNET_KEY: ""
+    AIRFLOW__CORE__FERNET_KEY: "6V51UhVCyzU9kdHCdGbnWtu-t-BmfkJlygNBAw2W3to="
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
     AIRFLOW__API__AUTH_BACKENDS: "airflow.api.auth.backend.basic_auth"
@@ -17,10 +16,14 @@ x-airflow-common: &airflow-common
     - ./data:/opt/airflow/data
     - ./logs:/opt/airflow/logs
     - ./config:/opt/airflow/config
+    - ./jars:/opt/airflow/jars
   depends_on:
-    - postgres
-    - redis
-    - spark-master
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_started
+    spark-master:
+      condition: service_started
 
 services:
   postgres:
@@ -33,6 +36,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:latest
@@ -41,11 +49,18 @@ services:
     volumes:
       - redis-data-volume:/data
 
+  airflow-init:
+    <<: *airflow-common
+    command: bash -c "airflow db init"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   airflow-webserver:
     <<: *airflow-common
     command: webserver
     ports:
-      - "8080:8080"
+      - "8082:8080" # Changed from 8080 to avoid conflicts
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 10s
@@ -65,8 +80,8 @@ services:
   spark-master:
     image: bitnami/spark:3.4
     ports:
-      - "8081:8080"
-      - "7077:7077"
+      - "8081:8080" # Spark UI
+      - "7077:7077" # Spark master port
     environment:
       - SPARK_MODE=master
     volumes:
@@ -87,3 +102,8 @@ services:
 volumes:
   postgres-db-volume:
   redis-data-volume:
+
+networks:
+  default:
+    name: airflow-network
+    driver: bridge

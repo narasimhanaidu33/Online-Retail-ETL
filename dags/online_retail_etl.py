@@ -1,7 +1,8 @@
-# dags/online_retail_etl.py
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.operators.dummy import DummyOperator  # Add this import
 
 default_args = {
     'owner': 'retail_team',
@@ -31,8 +32,20 @@ extract_task = SparkSubmitOperator(
     verbose=True
 )
 
-# Placeholder for future transform and load tasks
-transform_task = DummyOperator(task_id='transform_placeholder', dag=dag)
-load_task = DummyOperator(task_id='load_placeholder', dag=dag)
+create_tables = PostgresOperator(
+    task_id="create_tables",
+    postgres_conn_id="postgres_default",
+    sql="sql/migrations/001_initial_schema.sql",
+    dag=dag
+)
 
-extract_task >> transform_task >> load_task
+load_to_db = SparkSubmitOperator(
+    task_id="load_to_database",
+    application="/opt/airflow/spark_jobs/load/retail_loader.py",
+    conn_id="spark_default",
+    dag=dag
+)
+
+transform_task = DummyOperator(task_id='transform_placeholder', dag=dag)
+
+extract_task >> transform_task >> create_tables >> load_to_db
