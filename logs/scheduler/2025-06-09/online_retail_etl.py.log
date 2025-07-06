@@ -691,3 +691,87 @@ jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
 [2025-06-09T08:52:08.501+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:52:08.501+0000] {dag.py:2742} INFO - Sync 1 DAGs
 [2025-06-09T08:52:08.517+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:52:08.517+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
 [2025-06-09T08:52:08.529+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.120 seconds
+[2025-06-09T08:52:38.870+0000] {processor.py:157} INFO - Started process (PID=80) to work on /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:52:38.871+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/online_retail_etl.py for tasks to queue
+[2025-06-09T08:52:38.873+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:52:38.872+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:52:38.896+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:52:38.895+0000] {templater.py:77} ERROR - Failed to resolve template field 'sql'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/template/templater.py", line 75, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+  File "/home/airflow/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
+[2025-06-09T08:52:38.900+0000] {processor.py:836} INFO - DAG(s) dict_keys(['online_retail_etl']) retrieved from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:52:38.927+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:52:38.927+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-09T08:52:38.945+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:52:38.945+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
+[2025-06-09T08:52:38.957+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.093 seconds
+[2025-06-09T08:53:09.207+0000] {processor.py:157} INFO - Started process (PID=81) to work on /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:09.209+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/online_retail_etl.py for tasks to queue
+[2025-06-09T08:53:09.210+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:09.210+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:09.265+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:09.261+0000] {templater.py:77} ERROR - Failed to resolve template field 'sql'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/template/templater.py", line 75, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+  File "/home/airflow/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
+[2025-06-09T08:53:09.270+0000] {processor.py:836} INFO - DAG(s) dict_keys(['online_retail_etl']) retrieved from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:09.298+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:09.298+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-09T08:53:09.317+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:09.317+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
+[2025-06-09T08:53:09.328+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.128 seconds
+[2025-06-09T08:53:39.606+0000] {processor.py:157} INFO - Started process (PID=82) to work on /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:39.609+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/online_retail_etl.py for tasks to queue
+[2025-06-09T08:53:39.610+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:39.610+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:39.637+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:39.635+0000] {templater.py:77} ERROR - Failed to resolve template field 'sql'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/template/templater.py", line 75, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+  File "/home/airflow/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
+[2025-06-09T08:53:39.653+0000] {processor.py:836} INFO - DAG(s) dict_keys(['online_retail_etl']) retrieved from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:39.687+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:39.687+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-09T08:53:39.704+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:39.704+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
+[2025-06-09T08:53:39.715+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.116 seconds
+[2025-06-09T08:53:45.676+0000] {processor.py:157} INFO - Started process (PID=83) to work on /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:45.677+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/online_retail_etl.py for tasks to queue
+[2025-06-09T08:53:45.678+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:45.678+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:45.695+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:45.693+0000] {templater.py:77} ERROR - Failed to resolve template field 'sql'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/template/templater.py", line 75, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+  File "/home/airflow/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
+[2025-06-09T08:53:45.699+0000] {processor.py:836} INFO - DAG(s) dict_keys(['online_retail_etl']) retrieved from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:53:45.728+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:45.728+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-09T08:53:45.743+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:53:45.742+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
+[2025-06-09T08:53:45.753+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.081 seconds
+[2025-06-09T08:54:16.000+0000] {processor.py:157} INFO - Started process (PID=84) to work on /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:54:16.002+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/online_retail_etl.py for tasks to queue
+[2025-06-09T08:54:16.003+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:16.002+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:54:16.023+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:16.022+0000] {templater.py:77} ERROR - Failed to resolve template field 'sql'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/template/templater.py", line 75, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+  File "/home/airflow/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
+[2025-06-09T08:54:16.026+0000] {processor.py:836} INFO - DAG(s) dict_keys(['online_retail_etl']) retrieved from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:54:16.055+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:16.055+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-09T08:54:16.076+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:16.076+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
+[2025-06-09T08:54:16.090+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.095 seconds
+[2025-06-09T08:54:46.343+0000] {processor.py:157} INFO - Started process (PID=85) to work on /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:54:46.346+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/online_retail_etl.py for tasks to queue
+[2025-06-09T08:54:46.347+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:46.347+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:54:46.385+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:46.383+0000] {templater.py:77} ERROR - Failed to resolve template field 'sql'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/template/templater.py", line 75, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+  File "/home/airflow/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: sql/migrations/001_initial_schema.sql
+[2025-06-09T08:54:46.388+0000] {processor.py:836} INFO - DAG(s) dict_keys(['online_retail_etl']) retrieved from /opt/airflow/dags/online_retail_etl.py
+[2025-06-09T08:54:46.416+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:46.416+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-09T08:54:46.433+0000] {logging_mixin.py:150} INFO - [2025-06-09T08:54:46.433+0000] {dag.py:3508} INFO - Setting next_dagrun for online_retail_etl to 2025-06-08T00:00:00+00:00, run_after=2025-06-09T00:00:00+00:00
+[2025-06-09T08:54:46.444+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/online_retail_etl.py took 0.104 seconds
